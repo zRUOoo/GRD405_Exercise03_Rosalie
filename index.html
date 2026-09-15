@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>GRD405 Lesson 3 demo</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --ink: #17233b;
+            --accent: #146c60;
+            --paper: #fff;
+            --soft: #eef6f4
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font: 1rem/1.6 system-ui, sans-serif;
+            color: var(--ink);
+            background: var(--paper)
+        }
+
+        header,
+        main,
+        footer {
+            max-width: 70rem;
+            margin: auto;
+            padding: 1.25rem
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding: 0;
+            list-style: none
+        }
+
+        a {
+            color: #075ea8
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible {
+            outline: .2rem solid #d14;
+            outline-offset: .2rem
+        }
+
+        .card {
+            background: var(--soft);
+            padding: 1rem;
+            border-radius: .5rem
+        }
+
+        img {
+            max-width: 100%;
+            height: auto
+        }
+
+        fieldset {
+            margin-block: 1rem
+        }
+
+        button {
+            padding: .65rem 1rem
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+            gap: 1rem
+        }
+
+        @media(prefers-reduced-motion:no-preference) {
+            .motion {
+                transition: transform .2s
+            }
+
+            .motion:hover,
+            .motion:focus {
+                transform: scale(1.02)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav aria-label="Primary">
+            <ul>
+                <li><a href=" ">Lesson 3</a ></li>
+                <li><a href="#check">Test</a ></li>
+                <li><a href="#about">About</a ></li>
+            </ul>
+        </nav>
+        <h1>From Local Page to Published Interactive Site</h1>
+    </header>
+    <main id="content" tabindex="-1">
+        <section class="grid">
+            <article class="card">
+                <img src="assets\images\site-image.jpg.jpg"
+                <h2>Goal</h2>
+                 <p>Organize a small site with predictable names and relative paths</p>
+            </article>
+            <article class="card">
+                <h2>Evidence</h2>
+                <p id="status" role="status">No test recorded yet.</p ><button type="button" id="test" class="motion">Record a live test</button>
+            </article>
+        </section>
+        <section id="about">
+        <h2>About This Page</h2>
+        <p>This page demonstrates structure, navigation, interaction, and testing.</p >
+        </section>
+        <section id="check">
+            <h2>Acceptance check</h2>
+            <p>Students diagnose three failures: missing asset, dead fragment link and keyboard-inaccessible action.</p >
+        </section>
+    </main>
+    <footer>
+        <p>GRD405 progressive demo. Local, dependency-free, keyboard operable.</p >
+    </footer>
+    <script>
+        document.querySelector('#test').addEventListener('click',()=>{
+            document.querySelector('#status').textContent='Live interaction confirmed.';
+        });
+    </script>
+</html>
